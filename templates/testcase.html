@@ -77,15 +77,15 @@
     <div class="container">
         <h1>TEST CASES RESULT</h1>
         {% if message %}
-            <p>{{ message }}</p>
+            <h2>{{ message }}</h2>
             <form method="post" id="form" action="{% url 'findeff' %}">
                 {% csrf_token %}
                 <button name="findeff">Find Efficiency</button>
             </form>
             
         {% else %}
+        <h2>Your code needs correction so please try again!!!</h2>
             {{ difference|safe }}
-            <h2>Your code needs correction so please try again!!!</h2>
         {% endif %}
     </div>
 </body>

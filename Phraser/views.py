@@ -11,7 +11,7 @@ def qs1(request):
 def index(request):
     if request.method == "GET":
         context = {
-            "code": "#Always use x as input variable\nx=int(input(""))\nprint(square)",
+            "code": "#Always use x as input variable\nx=int(input(""))\n",
             "output": "",
             "python": "active",
             "user_input": ""
@@ -87,17 +87,26 @@ def findeff(request):
     if request.method == "POST" and "findeff" in request.POST:
         with open('main.py', 'r') as main_file:
             main_contents = [line.replace("print", "return", 1) if line.strip().startswith("print") else line for line in main_file if "input(" not in line]
-        with open('comparison/Time_Complexity.py', 'w') as tc_file:
+        with open('comparison/Time_Complexity.py', 'w') as tc_file,open('comparison/Space Complexity.py', 'w') as sc_file:
             tc_file.write("import random\nimport big_o\ndef function(x):\n")
             for line in main_contents:
                 tc_file.write('\t' + line)
             tc_file.write("\ndef positive_int_generator(n):\n\treturn random.randint(0, 10000)\nbest, others = big_o.big_o(function, positive_int_generator, n_repeats=50)\nprint(best)")
+            # Space_Complexity.py
+            sc_file.write("from memory_profiler import profile\n@profile\ndef my_func(x):\n")
+            for line in main_contents:
+                sc_file.write('\t' + line)
+            sc_file.write("\nif __name__ == '__main__':\n\tmy_func(6)")
 
-        # run the Time_Complexity.py file
-        result = subprocess.run(["python", "comparison/Time_Complexity.py"], capture_output=True, text=True)
-        output = result.stdout.strip()
+        # Run the Time_Complexity.py and Space_Complexity.py files
+        time_result = subprocess.run(["python", "comparison/Time_Complexity.py"], capture_output=True, text=True)
+        space_result = subprocess.run(["python", "comparison/Space Complexity.py"], capture_output=True, text=True)
 
-        return render(request, 'efficiency.html', context={'output': output})
+        # Get the time and space complexity output
+        time_output = time_result.stdout.strip()
+        space_output = "\n".join(line for line in space_result.stdout.strip().split("\n") if "Filename:" not in line)
+        
+        return render(request, 'efficiency.html', context={'time_output': time_output, 'space_output': space_output})
 
     else:
         return HttpResponseBadRequest("Invalid request inside findeff")
