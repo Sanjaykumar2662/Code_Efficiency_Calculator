@@ -9,14 +9,8 @@ environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-DATABASES = {
-'default': {
-'ENGINE': 'django.db.backends.postgresql_psycopg2',
-'NAME': env('DATABASE_NAME'),
-'USER': env('DATABASE_USER'),
-'PASSWORD': env('DATABASE_PASS'),
-}
-}
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -41,9 +35,7 @@ INSTALLED_APPS = [
 
 	# Custom Apps
 	"Phraser",
-
-	# Utitlity Apps
-	"debug_toolbar",
+    "diff",
 ]
 
 MIDDLEWARE = [
@@ -56,7 +48,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 
 	# Custom Middlewares
-	"debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "ParaPhraser.urls"

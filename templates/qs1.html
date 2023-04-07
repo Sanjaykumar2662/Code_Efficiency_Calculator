@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body{
+			margin:0px;
+		}
+      .nav {
+         background-color: green;
+         color: black;
+         padding: 10px 20px;
+         border-radius: 5px;
+         text-decoration: none;
+         font-size: 20px;
+         font-weight: bold;
+         transition: all 0.2s ease-in-out;
+       }
+       
+       .nav:hover {
+         background-color: #3CB371;
+         color: white;
+         cursor: pointer;
+       }
+      .header{
+      	border:2px blue;
+      	padding:25px 0px;
+      	width: 100%;
+      	color:black;
+         background-color: green;
+         position:sticky;
+         font-family:"Times New Roman", Times, serif;
+         font-weight: bold;
+         font-size:30px;
+         text-align: center;
+         
+      }
+      #btn{
+      	border: none;
+      	padding: 20px 50px 20px 50px;
+      	background-color: green;
+      	color:black;
+      	display: inline-block;
+      	text-align: center;
+     	font-size: 26px;
+      	position:absolute;
+	    right: 200px;
+	    border-radius: 5px;
+       left: 50%;
+       transform: translateX(-50%)
+      }
+      
+   </style>
+</head>
+<body>
+    <div class="header">Online Code Efficiency Analyser</div>
+    <div class="qs">
+    	<h2>   Challenge 1</h2>
+        <pre style="border:2px; font-size:25px; font-family:serif"> Find the square of number eg for input value 4 output should be 16
+            <h3>   Input Format</h3>      The input contain positive integers.
+            <h3>   Sample Input</h3>      3    <h3>   Sample Output</h3>  
+      9
+        </pre>
+        <!-- <button id="btn" type="submit" onclick="next()" >Submit</button> -->
+        <a class="nav {{index}}" href="/index">Solve</a>
+        <br><br>
+    </div>
+</body>
+</html>

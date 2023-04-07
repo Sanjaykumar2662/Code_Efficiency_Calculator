@@ -1,0 +1,24 @@
+Input: 0
+Output: 0
+
+
+Input: 10
+Output: 100
+
+
+Input: 100
+Output: 10000
+
+
+Input: 3939
+Output: 15515721
+
+
+Input: -39
+Output: 1521
+
+
+Input: 75
+Output: 5625
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %}{% endblock title %} Code Efficiency Analyzer</title>
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header class="align-center head" >
+		<span id="paraphraser"><h3>Code Efficiency Analyzer   [Python]</h3></span>
+
+		 <span id="nav-items" class="align-center">
+			<!-- <a class="nav {{testcase}}" href="/testcase">Submit</a> -->
+		    <!-- <a class="nav {{c}}" href="/c">C</a>
+			<a class="nav {{cpp}}" href="/cpp">C++</a>
+			<a class="nav {{java}}" href="/java">Java</a>  -->
+		</span>
+	</header>
+	<main>
+		<form method="post" id="form">
+			{% csrf_token %}
+			<div class="codeblock">
+				<textarea name="code" id="codearea" class="textarea" placeholder="write your code here...">{{ code }}</textarea>
+			</div>
+			<div>
+				<label for="user_input"></label>
+				<textarea name="user_input" id="user_input" placeholder="Enter input........">{{user_input}}</textarea>
+			</div>
+			<div class="align-center codeblock">
+				<textarea name="output" id="outputarea" placeholder="Output........" disabled>{{ output }}</textarea>
+			</div>
+				<button id="play-btn" name="submit">Submit</button>
+				<button id="play-btn2" name="run" type="submit"><img  src="{% static 'images/play-button.png' %}" alt=""><br>Run</button>
+		</form>
+		
+	</main>
+	Shift+Enter for Run Code
+	<script src="{% static 'js/base.js' %}"></script>
+</body>
+</html>
