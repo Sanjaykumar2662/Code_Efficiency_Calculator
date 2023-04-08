@@ -3,9 +3,10 @@ from memory_profiler import profile
 def my_func(x):
 	#Always use x as input variable
 	
+	ans=x**2
 	
-	se=x**2
+	return(ans)
 	
-	return(se)
+
 if __name__ == '__main__':
 	my_func(6)

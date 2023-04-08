@@ -81,8 +81,6 @@ def index(request):
     else:
         return HttpResponseBadRequest("Invalid request inside index")
 
-
-
 def findeff(request):
     if request.method == "POST" and "findeff" in request.POST:
         with open('main.py', 'r') as main_file:
