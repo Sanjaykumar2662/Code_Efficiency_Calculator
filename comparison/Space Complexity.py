@@ -4,8 +4,10 @@ def my_func(x):
 	#Always use x as input variable
 	
 	
-	se=x**2
+	sq=x**2
 	
-	return(se)
+	return(sq)
+	
+
 if __name__ == '__main__':
 	my_func(6)
