@@ -7,7 +7,5 @@ def my_func(x):
 	
 	
 	return(x**2)
-	
-
 if __name__ == '__main__':
 	my_func(6)
