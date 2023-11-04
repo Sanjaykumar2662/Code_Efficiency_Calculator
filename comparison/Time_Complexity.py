@@ -1,12 +1,12 @@
 import random
 import big_o
 def function(x):
+	#use input box to give inputs 
+	
 	#Always use x as input variable
 	
 	
-	sq=x**2
-	
-	return(sq)
+	return(x**2)
 	
 
 def positive_int_generator(n):

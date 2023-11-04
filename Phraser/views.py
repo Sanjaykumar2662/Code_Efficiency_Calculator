@@ -11,7 +11,7 @@ def qs1(request):
 def index(request):
     if request.method == "GET":
         context = {
-            "code": "#Always use x as input variable\nx=int(input(""))\n",
+            "code": "#use input box to give inputs \n#Always use x as input variable\nx=int(input(""))\n",
             "output": "",
             "python": "active",
             "user_input": ""
@@ -99,11 +99,12 @@ def findeff(request):
         # Run the Time_Complexity.py and Space_Complexity.py files
         time_result = subprocess.run(["python", "comparison/Time_Complexity.py"], capture_output=True, text=True)
         space_result = subprocess.run(["python", "comparison/Space Complexity.py"], capture_output=True, text=True)
-
+        print(time_result)
         # Get the time and space complexity output
         time_output = time_result.stdout.strip()
+       
         space_output = "\n".join(line for line in space_result.stdout.strip().split("\n") if "Filename:" not in line)
-        
+    
         return render(request, 'efficiency.html', context={'time_output': time_output, 'space_output': space_output})
 
     else:
